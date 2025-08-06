@@ -2,6 +2,7 @@ import React from 'react'
 import { FaDiscord, FaCode } from 'react-icons/fa';
 import { LINKS, FOOTER_LINKS } from '../../config/links.js';
 import '../../styles/index.css'
+import TuringLogo from '../../assets/TuringLogo.svg';
 
 const Footer = () => {
     return (
@@ -10,9 +11,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="col-span-2">
                         <div className="flex items-center space-x-3 mb-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-lg">TC</span>
-                            </div>
+                            <img src={TuringLogo} alt="Turing Community Logo" className="w-10 h-10" />
                             <span className="text-2xl font-bold text-white">Turing Community</span>
                         </div>
                         <p className="text-gray-400 mb-6 max-w-md">

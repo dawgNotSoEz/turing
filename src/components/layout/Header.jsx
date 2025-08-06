@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaDiscord, FaBars } from 'react-icons/fa';
 import { NAVIGATION_LINKS, LINKS } from '../../config/links.js';
 import '../../styles/index.css'
+import TuringLogo from '../../assets/TuringLogo.svg';
 
 const Header = ({ onDiscordBotClick }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -23,9 +24,7 @@ const Header = ({ onDiscordBotClick }) => {
             <div className="section-container">
                 <div className="flex justify-between items-center py-4">
                     <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">TC</span>
-                        </div>
+                        <img src={TuringLogo} alt="Turing Community Logo" className="w-10 h-10" />
                         <span className="text-2xl font-bold text-white">Turing Community</span>
                     </div>
                     
