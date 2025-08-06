@@ -10,9 +10,9 @@ const getEnvVar = (key, fallback = '#') => {
 export const LINKS = {
   // Primary Discord Links
   discord: {
-    invite: getEnvVar('VITE_DISCORD_INVITE_LINK', 'https://discord.gg/placeholder'),
+    invite: getEnvVar('VITE_DISCORD_INVITE_LINK', 'https://discord.gg/hTnmRMkY5Y'),
     bot: getEnvVar('VITE_DISCORD_BOT_INVITE_LINK', '#bot-invite'),
-    server: getEnvVar('VITE_DISCORD_INVITE_LINK', 'https://discord.gg/placeholder'),
+    server: getEnvVar('VITE_DISCORD_INVITE_LINK', 'https://discord.gg/hTnmRMkY5Y'),
   },
 
   // Social Media
