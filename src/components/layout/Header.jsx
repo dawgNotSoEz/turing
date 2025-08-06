@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { DiscordIcon } from '../../assets/icons';
-import { NAVIGATION_LINKS, DISCORD_INVITE_LINK } from '../../data/constants';
+import React, { useState, useEffect } from 'react';
+import { FaDiscord, FaBars } from 'react-icons/fa';
+import { NAVIGATION_LINKS, LINKS } from '../../config/links.js';
+import '../../styles/index.css'
 
 const Header = ({ onDiscordBotClick }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +20,7 @@ const Header = ({ onDiscordBotClick }) => {
                 ? 'bg-gray-900/80 backdrop-blur-md border-b border-gray-700/50' 
                 : 'bg-transparent'
         }`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="section-container">
                 <div className="flex justify-between items-center py-4">
                     <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -52,19 +53,19 @@ const Header = ({ onDiscordBotClick }) => {
                             );
                         })}
                         <a
-                            href={DISCORD_INVITE_LINK}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                            href={LINKS.discord.invite}
+                            className="btn btn-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            <DiscordIcon className="w-5 h-5" />
+                            <FaDiscord className="w-5 h-5" />
                             <span>Join Server</span>
                         </a>
                     </nav>
                     
                     <div className="md:hidden">
                         <button className="text-gray-300 hover:text-white">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
+                            <FaBars className="w-6 h-6" />
                         </button>
                     </div>
                 </div>

@@ -1,25 +1,27 @@
-import { TrophyIcon, FireIcon, ClockIcon } from '../../assets/icons';
+import React from 'react'
+import { FaTrophy, FaFire, FaClock } from 'react-icons/fa'
 import { useScrollAnimation } from '../../hooks/useAnimations';
 import { RANK_SYSTEM, POINT_SYSTEM } from '../../data/constants';
+import '../../styles/index.css'
 
 const ChallengeSection = () => {
     const [challengeRef, isChallengeVisible] = useScrollAnimation(0.1);
 
     return (
-        <section id="challenges" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="challenges" className="section bg-gradient-to-b from-gray-900 to-gray-800">
+            <div className="section-container">
                 <div 
                     ref={challengeRef}
-                    className={`text-center mb-16 transition-all duration-1000 ${
+                    className={`section-header transition-all duration-1000 ${
                         isChallengeVisible 
                             ? 'opacity-100 transform translate-y-0' 
                             : 'opacity-0 transform translate-y-10'
                     }`}
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Weekly Challenges</span> & Rankings
+                    <h2 className="section-title">
+                        <span className="text-gradient">Weekly Challenges</span> & Rankings
                     </h2>
-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                    <p className="section-subtitle">
                         Compete in weekly coding challenges, earn points, climb the leaderboard, 
                         and unlock exclusive ranks as you progress in your coding journey.
                     </p>
@@ -32,9 +34,9 @@ const ChallengeSection = () => {
                             ? 'opacity-100 transform translate-x-0' 
                             : 'opacity-0 transform -translate-x-10'
                     }`}>
-                        <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                        <div className="card card-enhanced p-8">
                             <div className="flex items-center mb-6">
-                                <TrophyIcon className="w-8 h-8 text-yellow-400 mr-4" />
+                                <FaTrophy className="w-8 h-8 text-yellow-400 mr-4" />
                                 <h3 className="text-2xl font-bold text-white">Rank System</h3>
                             </div>
                             <div className="space-y-4">
@@ -60,9 +62,9 @@ const ChallengeSection = () => {
                             ? 'opacity-100 transform translate-x-0' 
                             : 'opacity-0 transform translate-x-10'
                     }`}>
-                        <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                        <div className="card card-enhanced p-8">
                             <div className="flex items-center mb-6">
-                                <FireIcon className="w-8 h-8 text-orange-400 mr-4" />
+                                <FaFire className="w-8 h-8 text-orange-400 mr-4" />
                                 <h3 className="text-2xl font-bold text-white">Point System</h3>
                             </div>
                             <div className="space-y-3">
@@ -85,7 +87,7 @@ const ChallengeSection = () => {
                 }`}>
                     <div className="text-center">
                         <div className="flex items-center justify-center mb-6">
-                            <ClockIcon className="w-8 h-8 text-blue-400 mr-4" />
+                            <FaClock className="w-8 h-8 text-blue-400 mr-4" />
                             <h3 className="text-2xl font-bold text-white">This Week's Challenge</h3>
                         </div>
                         <h4 className="text-xl font-semibold text-blue-400 mb-4">Binary Tree Maximum Path Sum</h4>

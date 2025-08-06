@@ -1,25 +1,27 @@
-import { ArrowRightIcon } from '../../assets/icons';
+import React from 'react'
+import { FaArrowRight } from 'react-icons/fa';
 import { useScrollAnimation } from '../../hooks/useAnimations';
 import { DOMAINS } from '../../data/constants';
+import '../../styles/index.css'
 
 const DomainsSection = () => {
     const [domainsRef, isDomainsVisible] = useScrollAnimation(0.1);
 
     return (
-        <section id="domains" className="py-20 bg-gray-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="domains" className="section bg-gray-800">
+            <div className="section-container">
                 <div 
                     ref={domainsRef}
-                    className={`text-center mb-16 transition-all duration-1000 ${
+                    className={`section-header transition-all duration-1000 ${
                         isDomainsVisible 
                             ? 'opacity-100 transform translate-y-0' 
                             : 'opacity-0 transform translate-y-10'
                     }`}
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Explore <span className="bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">Tech Domains</span>
+                    <h2 className="section-title">
+                        Explore <span className="text-gradient">Tech Domains</span>
                     </h2>
-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                    <p className="section-subtitle">
                         Discover your passion across diverse technology domains. Each area offers unique 
                         challenges, learning paths, and opportunities to specialize.
                     </p>
@@ -29,7 +31,7 @@ const DomainsSection = () => {
                     {DOMAINS.map((domain, index) => (
                         <div 
                             key={index}
-                            className={`group bg-gray-900 rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/20 ${
+                            className={`card card-hover card-enhanced p-8 group hover-lift ${
                                 isDomainsVisible 
                                     ? 'opacity-100 transform translate-y-0' 
                                     : 'opacity-0 transform translate-y-10'
@@ -63,7 +65,7 @@ const DomainsSection = () => {
                             
                             <button className="w-full bg-gray-700 hover:bg-cyan-600 text-white py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 group-hover:transform group-hover:scale-105">
                                 <span>Explore Domain</span>
-                                <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>
                     ))}

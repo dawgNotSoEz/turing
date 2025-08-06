@@ -5,3 +5,8 @@ export { default as DomainsSection } from './DomainsSection';
 export { default as CommunitySection } from './CommunitySection';
 export { default as TeamSection } from './TeamSection';
 export { default as DiscordBotSection } from './DiscordBotSection';
+export { default as FeaturesSection } from './FeaturesSection';
+export { default as EventsSection } from './EventsSection';
+export { default as ResourcesSection } from './ResourcesSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as CTASection } from './CTASection';

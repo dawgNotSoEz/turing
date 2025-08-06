@@ -1,6 +1,9 @@
-import { ArrowRightIcon, StarIcon, DiscordIcon } from '../../assets/icons';
+import React from 'react'
+import { FaArrowRight, FaStar, FaDiscord } from 'react-icons/fa'
 import { useScrollAnimation } from '../../hooks/useAnimations';
-import { DISCORD_INVITE_LINK, COMMUNITY_STATS } from '../../data/constants';
+import { LINKS, CTA_BUTTONS } from '../../config/links.js';
+import { COMMUNITY_STATS } from '../../data/constants';
+import '../../styles/index.css'
 
 const HeroSection = () => {
     const [heroRef, isHeroVisible] = useScrollAnimation(0.1);
@@ -30,7 +33,7 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="relative z-10 section-container text-center">
                 <div 
                     ref={heroRef}
                     className={`transition-all duration-1000 ${
@@ -41,13 +44,13 @@ const HeroSection = () => {
                 >
                     <div className="mb-6">
                         <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-sm font-medium">
-                            <StarIcon className="w-4 h-4 mr-2" />
+                            <FaStar className="w-4 h-4 mr-2" />
                             Discord Community for Coders
                         </span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                        <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                        <span className="text-gradient">
                             Turing Community
                         </span>
                     </h1>
@@ -60,19 +63,21 @@ const HeroSection = () => {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
                         <a
-                            href={DISCORD_INVITE_LINK}
-                            className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-3 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                            href={CTA_BUTTONS.primary.discord.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary btn-lg group transform hover:scale-105 shadow-lg hover:shadow-xl"
                         >
-                            <DiscordIcon className="w-6 h-6" />
-                            <span>Join Our Discord</span>
-                            <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <FaDiscord className="w-6 h-6" />
+                            <span>{CTA_BUTTONS.primary.discord.text}</span>
+                            <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </a>
                         <a
-                            href="#about"
-                            className="group border border-gray-300 hover:border-white text-gray-300 hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-3"
+                            href={CTA_BUTTONS.secondary.learnMore.href}
+                            className="btn btn-secondary btn-lg group"
                         >
-                            <span>Learn More</span>
-                            <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <span>{CTA_BUTTONS.secondary.learnMore.text}</span>
+                            <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </a>
                     </div>
 

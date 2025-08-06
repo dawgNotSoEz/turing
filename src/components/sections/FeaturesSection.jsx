@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaCode, FaUsers, FaTrophy, FaGraduationCap } from 'react-icons/fa'
+import '../../styles/index.css'
 
 const FeaturesSection = () => {
   const features = [
@@ -26,13 +27,13 @@ const FeaturesSection = () => {
   ]
 
   return (
-    <section className="py-20 bg-gray-900">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Why Choose Turing Community?
+    <section className="section bg-gray-900">
+      <div className="section-container">
+        <div className="section-header">
+          <h2 className="section-title">
+            Why Choose <span className="text-gradient">Turing Community?</span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="section-subtitle">
             Discover the features that make our community the perfect place for developers to grow and excel.
           </p>
         </div>
@@ -41,7 +42,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition-all duration-300 hover:transform hover:scale-105 text-center"
+              className="card card-hover card-enhanced p-8 text-center hover-lift"
             >
               <div className="flex justify-center mb-6">
                 {feature.icon}

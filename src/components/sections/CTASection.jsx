@@ -1,10 +1,12 @@
 import React from 'react'
 import { FaDiscord, FaArrowRight, FaGithub, FaTwitter } from 'react-icons/fa'
+import { LINKS, CTA_BUTTONS, SOCIAL_LINKS } from '../../config/links.js';
+import '../../styles/index.css'
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
-      <div className="container mx-auto px-6">
+    <section className="section bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+      <div className="section-container">
         <div className="text-center">
           <h2 className="text-5xl font-bold text-white mb-6">
             Ready to Level Up?
@@ -15,18 +17,26 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <button className="bg-white text-gray-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:transform hover:scale-105 flex items-center group">
+            <a
+              href={CTA_BUTTONS.primary.discord.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-gray-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:transform hover:scale-105 flex items-center group"
+            >
               <FaDiscord className="mr-3 text-2xl text-blue-600" />
-              Join Discord Server
+              {CTA_BUTTONS.primary.discord.text}
               <FaArrowRight className="ml-3 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
+            </a>
             
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-800 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:transform hover:scale-105">
-              Explore Challenges
-            </button>
+            <a
+              href={CTA_BUTTONS.secondary.challenges.href}
+              className="btn btn-secondary btn-lg"
+            >
+              {CTA_BUTTONS.secondary.challenges.text}
+            </a>
           </div>
 
-          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="card card-enhanced bg-white bg-opacity-10 backdrop-blur-lg p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-6">
               What You'll Get:
             </h3>
@@ -109,15 +119,22 @@ const CTASection = () => {
           <div className="mt-12">
             <p className="text-blue-100 mb-4">Follow us on social media:</p>
             <div className="flex justify-center space-x-6">
-              <a href="#" className="text-white hover:text-blue-200 transition-colors duration-300">
-                <FaDiscord className="text-3xl" />
-              </a>
-              <a href="#" className="text-white hover:text-blue-200 transition-colors duration-300">
-                <FaGithub className="text-3xl" />
-              </a>
-              <a href="#" className="text-white hover:text-blue-200 transition-colors duration-300">
-                <FaTwitter className="text-3xl" />
-              </a>
+              {SOCIAL_LINKS.slice(0, 3).map((social, index) => {
+                const IconComponent = social.name === 'Discord' ? FaDiscord : 
+                                   social.name === 'GitHub' ? FaGithub : FaTwitter;
+                return (
+                  <a 
+                    key={index}
+                    href={social.url} 
+                    className="text-white hover:text-blue-200 transition-colors duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Follow us on ${social.name}`}
+                  >
+                    <IconComponent className="text-3xl" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

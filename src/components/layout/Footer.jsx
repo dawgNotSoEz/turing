@@ -1,10 +1,12 @@
-import { DiscordIcon, CodeIcon } from '../../assets/icons';
-import { DISCORD_INVITE_LINK } from '../../data/constants';
+import React from 'react'
+import { FaDiscord, FaCode } from 'react-icons/fa';
+import { LINKS, FOOTER_LINKS } from '../../config/links.js';
+import '../../styles/index.css'
 
 const Footer = () => {
     return (
         <footer className="bg-gray-900 border-t border-gray-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="section-container py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="col-span-2">
                         <div className="flex items-center space-x-3 mb-4">
@@ -19,10 +21,12 @@ const Footer = () => {
                         </p>
                         <div className="flex space-x-4">
                             <a 
-                                href={DISCORD_INVITE_LINK}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                                href={LINKS.discord.invite}
+                                className="btn btn-primary"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <DiscordIcon className="w-5 h-5" />
+                                <FaDiscord className="w-5 h-5" />
                                 <span>Join Our Discord</span>
                             </a>
                         </div>
@@ -31,20 +35,34 @@ const Footer = () => {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Quick Links</h3>
                         <ul className="space-y-2">
-                            <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                            <li><a href="#challenges" className="text-gray-400 hover:text-white transition-colors">Challenges</a></li>
-                            <li><a href="#domains" className="text-gray-400 hover:text-white transition-colors">Domains</a></li>
-                            <li><a href="#community" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
+                            {FOOTER_LINKS.quickLinks.map((link, index) => (
+                                <li key={index}>
+                                    <a 
+                                        href={link.href} 
+                                        className="text-gray-400 hover:text-white transition-colors"
+                                    >
+                                        {link.text}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     
                     <div>
                         <h3 className="text-white font-semibold mb-4">Resources</h3>
                         <ul className="space-y-2">
-                            <li><a href="#team" className="text-gray-400 hover:text-white transition-colors">Team</a></li>
-                            <li><a href="/bot" className="text-gray-400 hover:text-white transition-colors">Discord Bot</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Guidelines</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help</a></li>
+                            {FOOTER_LINKS.resources.map((link, index) => (
+                                <li key={index}>
+                                    <a 
+                                        href={link.href} 
+                                        className="text-gray-400 hover:text-white transition-colors"
+                                        target={link.href.startsWith('http') ? "_blank" : undefined}
+                                        rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                                    >
+                                        {link.text}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -54,7 +72,7 @@ const Footer = () => {
                         © 2024 Turing Community. Built with ❤️ for the coding community.
                     </p>
                     <div className="flex items-center space-x-2 mt-4 md:mt-0">
-                        <CodeIcon className="w-4 h-4 text-gray-400" />
+                        <FaCode className="w-4 h-4 text-gray-400" />
                         <span className="text-gray-400 text-sm">Made by students, for students</span>
                     </div>
                 </div>

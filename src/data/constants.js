@@ -1,15 +1,9 @@
 // === APPLICATION CONSTANTS ===
+import { LINKS, NAVIGATION_LINKS as NAV_LINKS, DISCORD_CONFIG } from '../config/links.js';
 
-export const DISCORD_INVITE_LINK = "https://discord.gg/your-invite-link";
-
-export const NAVIGATION_LINKS = [
-    { href: "#about", text: "About" },
-    { href: "#challenges", text: "Challenges" },
-    { href: "#domains", text: "Domains" },
-    { href: "#community", text: "Community" },
-    { href: "#team", text: "Team" },
-    { href: "/bot", text: "Discord Bot", external: true },
-];
+// Re-export for backwards compatibility
+export const DISCORD_INVITE_LINK = LINKS.discord.invite;
+export const NAVIGATION_LINKS = NAV_LINKS;
 
 export const COMMUNITY_STATS = [
     { value: "500+", label: "Active Members" },
